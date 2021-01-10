@@ -7,7 +7,7 @@ import (
 	"log"
 )
 
-const TelApiKey = "111"
+const TelApiKey = "**"
 
 func UpdateChannelandBot() (tgbotapi.UpdatesChannel, *tgbotapi.BotAPI) {
 
@@ -43,12 +43,3 @@ func PrepareMessage(p *parser.Post) string {
 %s
 `, p.Picture, p.Size, p.DateOfBuy, p.Measurements, p.Text, p.Model, p.Foto)
 }
-
-/*
-file := "http://...../img.jpg"
-msg := tgbotapi.NewPhotoUpload(update.Message.Chat.ID, nil)
-msg.FileID = file
-msg.UseExisting = true
-bot.Send(msg)
-
-*/
