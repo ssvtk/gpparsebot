@@ -1,12 +1,14 @@
 package main
 
 import (
+	"fmt"
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api"
 	"github.com/jackc/pgx"
 	"gpparstel/db"
 	"gpparstel/parser"
 	"gpparstel/telegram"
 	"log"
+	"os"
 	"time"
 )
 
@@ -18,7 +20,8 @@ func main() {
 
 	log.Println("Connection successfully done")
 	if err != nil {
-		log.Fatal(err)
+		_, _ = fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
+		os.Exit(1)
 	}
 	defer conn.Close()
 
